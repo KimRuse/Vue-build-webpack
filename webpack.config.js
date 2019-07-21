@@ -21,6 +21,13 @@ module.exports = {
         loader: 'vue-loader'
       },
       {
+        test: /\.svg$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000
+        }
+      },
+      {
         test: /\.css$/,
         use: [
           'vue-style-loader',
@@ -32,10 +39,16 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader',
-          'sass-loader'
+          'sass-loader',
         ]
       }
     ]
+  },
+  resolve: {
+    alias: {
+      Public: path.resolve(__dirname, './public'),
+      Src: path.resolve(__dirname, './src')
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
