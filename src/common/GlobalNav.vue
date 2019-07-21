@@ -113,7 +113,7 @@ export default {
             height: 45px;
             border-radius: 4px;
             margin: 10px;
-            transition: all .5s ease-out;
+            transition: all .3s ease-out;
             &::-webkit-input-placeholder {
               opacity:0.5;
             }
@@ -121,8 +121,10 @@ export default {
         }
         .h-nav {
           position: absolute;
-          left: 230px;
+          left: 230px; top: 9px;
+          font-size: 0;
           a {
+            font-size: 16px;
             display: inline-block;
             line-height: 40px;
             border-radius: 6px;
@@ -135,6 +137,13 @@ export default {
             &:hover {
               background: #f3f3f3;
             }
+          }
+          .chunk-move {
+            width: 60px;
+            position: absolute;
+            left: 0; bottom: 6px;
+            border: 1.2px solid #009a61;
+            transition: left 0.2s ease;
           }
         }
       }

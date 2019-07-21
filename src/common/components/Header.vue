@@ -5,16 +5,16 @@
         <input type="text" placeholder="搜索问起或关键字" class="h-search show" :style=" focusState ? activeClass : '' " @focus="handleInput"
          @blur="handleInputOut">
         <div class="h-search-info">
-
         </div>
       </div>
       <div class="h-nav show">
-        <a href="#" class="active">首页</a>
-        <a href="#" class="">问答</a>
-        <a href="#" class="">专栏</a>
-        <a href="#" class="">课程</a>
-        <a href="#" class="">圈子</a>
-        <a href="#" class="">发现</a>
+        <div class="chunk-move" :style="{left: distance + 'px'}"></div>
+        <a href="#" class="active" data-num=0 @mouseover="handleNavOver" @mouseout="handleNavOut">首页</a>
+        <a href="#" class="" data-num=1 @mouseover="handleNavOver" @mouseout="handleNavOut">问答</a>
+        <a href="#" class="" data-num=2 @mouseover="handleNavOver" @mouseout="handleNavOut">专栏</a>
+        <a href="#" class="" data-num=3 @mouseover="handleNavOver" @mouseout="handleNavOut">课程</a>
+        <a href="#" class="" data-num=4 @mouseover="handleNavOver" @mouseout="handleNavOut">圈子</a>
+        <a href="#" class="" data-num=5 @mouseover="handleNavOver" @mouseout="handleNavOut">发现</a>
       </div>
       <div class="h-title">
         <img src="../../../public/logo-b.svg" alt="" class="">
@@ -37,6 +37,7 @@ export default {
       activeClass: {
        width: '300px'
       },
+      distance: 0,
       focusState: false
     }
   },
@@ -46,11 +47,14 @@ export default {
     },
     handleInputOut() {
       this.focusState = false
+    },
+    handleNavOver(event) {
+      this.distance = 60 * event.target.dataset['num'];
+    },
+    handleNavOut() {
+      this.distance = 0;
     }
   },
 }
 </script>
-
-<style lang="scss" scoped>
-</style>
 
